@@ -6,16 +6,14 @@ export function timeConversion(s) {
   ];
 
   if (_time_period === 'PM') {
-    return `${numberToString(Number(_hour) + 12)}:${_minute}:${_second}`;
+    return `${numberToString(
+      _hour > 11 ? _hour : Number(_hour) + 12
+    )}:${_minute}:${_second}`;
   } else {
-    return `${_hour}:${_minute}:${_second}`;
+    return `${_hour > 11 ? '00' : _hour}:${_minute}:${_second}`;
   }
 
   function numberToString(num) {
     return num > 9 ? `${num}` : `0${num}`;
   }
 }
-
-const example = '07:05:45PM';
-
-console.log(timeConversion(example));
