@@ -1,4 +1,4 @@
-# coding-challanges
+# TS Coding challanges
 
 ## Setup
 
