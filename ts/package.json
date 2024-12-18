@@ -4,8 +4,11 @@
   "description": "code challanges on typescript",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "vitest"
   },
   "author": "@julnarot",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.4.0"
+  }
 }
