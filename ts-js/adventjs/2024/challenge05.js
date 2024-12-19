@@ -1,4 +1,5 @@
 export function organizeShoes(shoes) {
+    const sizes = [];
     const shoeObj = {};
     shoes.forEach(element => {
         if (shoeObj.hasOwnProperty(element.size)) {
@@ -7,5 +8,16 @@ export function organizeShoes(shoes) {
             shoeObj[element.size] = [element];
         }
     });
-    return Object.keys(shoeObj).filter(key => [...shoeObj[key].map(shoe => shoe.type)].length > 1).map(k => Number(k));
+    Object.keys(shoeObj).forEach(key => {
+        const leftAndRigthShoe = [
+            shoeObj[key].filter(shoe => shoe.type === 'I').length,
+            shoeObj[key].filter(shoe => shoe.type === 'R').length
+        ];
+        if (!leftAndRigthShoe.includes(0)) {
+            Array.from({ length: Math.min(...leftAndRigthShoe) }).map(() => key).forEach(size => {
+                sizes.push(Number(size));
+            })
+        }
+    })
+    return sizes;
 }
