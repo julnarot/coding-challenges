@@ -7,5 +7,5 @@ export function organizeShoes(shoes) {
             shoeObj[element.size] = [element];
         }
     });
-    return Object.keys(shoeObj).filter(key => [...shoeObj[key].map(shoe => shoe.type)].length > 1).map(k => Number(k))
+    return Object.keys(shoeObj).filter(key => [...shoeObj[key].map(shoe => shoe.type)].length > 1).map(k => Number(k));
 }

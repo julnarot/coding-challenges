@@ -9,6 +9,5 @@ test('Test case 01', () => {
         { type: 'I', size: 41 },
         { type: 'I', size: 42 }
     ];
-    console.log(organizeShoes(shoes));
     expect(organizeShoes(shoes)).toEqual([38, 42])
 });
