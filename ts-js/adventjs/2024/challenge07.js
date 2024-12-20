@@ -1,22 +1,21 @@
 export function fixPackages(packages) {
-    const hasPattern = (text) => {
-        return /\([^\(\)]*\)/.test(text);
-    }
-    const findPattern = (text) => {
-        const firstMatches = [...text.matchAll(/\(/g)];
-        const lastMatches = [...text.matchAll(/\)/g)];
-        const { index: limInf } = firstMatches[firstMatches.length - 1]
-        const { index: limSup } = lastMatches[0]
-        return text.substring(limInf, limSup + 1);
-    }
-    const reverseText = (text) => {
-        return [...text.slice(1, -1).split("")].reverse().join("");
-    }
-    do {
-        const patterFound = findPattern(packages);
-        const patternFoundRevers = reverseText(patterFound);
-        packages = packages.replace(patterFound, patternFoundRevers);
+    const hasPattern = /\([^\(\)]*\)/;
 
-    } while (hasPattern(packages))
-    return packages
+    const findPattern = (text) => {
+        const match = text.match(/\([^\(\)]*\)/);
+        return match ? match[0] : null;
+    };
+
+    const reverseText = (text) => {
+        return text.slice(1, -1).split("").reverse().join("");
+    };
+
+    while (hasPattern.test(packages)) {
+        const patternFound = findPattern(packages);
+        if (patternFound) {
+            const patternReversed = reverseText(patternFound);
+            packages = packages.replace(patternFound, patternReversed);
+        }
+    }
+    return packages;
 }
