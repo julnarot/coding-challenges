@@ -30,7 +30,6 @@ export function moveTrain(board, mov) {
                     action = 'crash';
                 }
             }
-            console.log(index + ' : ',action)
         }
     });
     return action;
