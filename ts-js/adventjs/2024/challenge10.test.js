@@ -12,3 +12,30 @@ test('unit test 01', () => {
     ]
     expect(compile(instructions)).toEqual(2)
 })
+test('unit test 02', () => {
+    const instructions = [
+        "MOV 5 B",
+        "DEC B",
+        "MOV B A",
+        "INC A"
+    ]
+    expect(compile(instructions)).toEqual(5)
+})
+test('unit test 03', () => {
+    const instructions = [
+        "INC A",
+        "INC A",
+        "DEC A",
+        "MOV A B"
+    ]
+    expect(compile(instructions)).toEqual(1)
+})
+test('unit test 04', () => {
+    const instructions = [
+        "INC C",
+        "DEC B",
+        "MOV C Y",
+        "INC Y"
+    ]
+    expect(compile(instructions)).toEqual(undefined)
+})
