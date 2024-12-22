@@ -6,16 +6,16 @@ export function compile(instructions) {
         memory[regTo] = memory[regFrom];
     }
     const copy = (registro, value) => {
-        memory[registro] = value;
+        memory[registro] = Number(value);
     }
     const increment = (registro) => {
-        memory[registro] = memory[registro] + 1;
+        memory[registro] = !!memory[registro] ? Number(memory[registro]) + 1 : 1;
     }
 
 
     const applyAction = (operation, instr1, instr2, value) => {
         if (operation === 'MOV') {
-            if (isNaN(instr1)) {
+            if (!isNaN(instr1)) {
                 copy(instr2, instr1);
             } else {
                 move(instr1, instr2, value);
@@ -33,13 +33,10 @@ export function compile(instructions) {
         const instruction = instructions[index];
         const [operation, instr1, instr2] = instruction.split(" ");
         const resul = applyAction(operation, instr1, instr2);
-        if(resul>=0){
-            index = 1
+        if (resul >= 0) {
+            index = resul - 1
         }
-        lastRegister = instr1 ?? instr2;
+        lastRegister = instr1;
     }
-    // instructions.forEach(instruction => {
-    // });
-    console.log(lastRegister, ' : ', memory[lastRegister])
-
+    return memory[lastRegister];
 }
