@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { organizeShoes } from './challenge05'
+import { organizeShoes } from './day05'
 
 test('Test case 01', () => {
     const shoes = [

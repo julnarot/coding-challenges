@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { createXmasTree } from './challenge04';
+import { createXmasTree } from './day04';
 
 test('Test case 01', () => {
     const expectTree = `____*____

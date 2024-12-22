@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { compile } from './challenge10';
+import { compile } from './day10';
 
 
 test('unit test 01', () => {

@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { inBox } from './challenge06';
+import { inBox } from './day06';
 
 test('unit case 01', () => {
     expect(inBox([

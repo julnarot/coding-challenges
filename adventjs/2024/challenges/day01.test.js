@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { prepareGifts } from './challenge01';
+import { prepareGifts } from './day01';
 
 test('example test case 01', () => {
   expect(prepareGifts([3, 1, 2, 3, 4, 2, 5])).toEqual([1, 2, 3, 4, 5]);

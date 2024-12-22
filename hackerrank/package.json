@@ -1,7 +1,7 @@
 {
-  "name": "ts",
+  "name": "hackerrank",
   "version": "1.0.0",
-  "description": "code challanges on typescript",
+  "description": "code challanges solutions",
   "main": "index.js",
   "scripts": {
     "test": "vitest"
@@ -9,6 +9,6 @@
   "author": "@julnarot",
   "license": "ISC",
   "devDependencies": {
-    "vitest": "^1.4.0"
+    "vitest": "^2.1.8"
   }
 }

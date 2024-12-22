@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { fixPackages } from './challenge07';
+import { fixPackages } from './day07';
 
 
 test("test case 01", () => {

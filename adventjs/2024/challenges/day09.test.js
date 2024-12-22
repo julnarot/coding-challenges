@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { moveTrain } from './challenge09';
+import { moveTrain } from './day09';
 
 
 test('test case 01', () => {
