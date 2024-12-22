@@ -1,0 +1,14 @@
+{
+  "name": "2024",
+  "version": "1.0.0",
+  "description": "code challanges solutions",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "author": "@julnarot",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^2.1.8"
+  }
+}

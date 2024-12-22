@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { createFrame } from './challenge02';
+import { createFrame } from './day02';
 
 test('example test case 01', () => {
     const expectedStr = `***************
