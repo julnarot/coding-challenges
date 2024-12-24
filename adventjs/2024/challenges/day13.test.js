@@ -40,6 +40,26 @@ test('Unit test 10', () => {
     expect(isRobotBack('U!D')).toEqual([0, 2]);
 })
 
+test('Unit test 10', () => {
+    expect(isRobotBack('U!D')).toEqual([0, 2]);
+})
+
+test('Unit test 11', () => {
+    expect(isRobotBack('R?L')).toEqual(true);
+})
+
+test('Unit test 12', () => {
+    expect(isRobotBack('U?U')).toEqual([0, 1]);
+})
+
+test('Unit test 13', () => {
+    expect(isRobotBack('*U?U')).toEqual([0, 2]);
+})
+
+test('Unit test 14', () => {
+    expect(isRobotBack('U?D?U')).toEqual(true);
+})
+
 test('Unit test 100', () => {
     expect(isRobotBack('!U?U')).toEqual(true);
 })

@@ -17,7 +17,7 @@ export function isRobotBack(moves) {
             countUsed: 0,
         },
     }
-    const checkReturnOrigin = (positions) => positions[0] === 0 && positions[1] === 0 || positions
+    const checkReturnOrigin = (positions) => positions[0] === 0 && positions[1] === 0 || positions;
 
     const buildPositions = (moves) => {
         let pos = []
@@ -39,7 +39,6 @@ export function isRobotBack(moves) {
                         pos.push(m)
                         moveProp[m].countUsed = moveProp[m].countUsed + 1;
                     });
-                    // pos = [...pos, ...];
                     acumDob = 0;
                 } else if (nextValInvert) {
                     const foundMove = pos.findIndex(fi => fi === move);
@@ -47,21 +46,17 @@ export function isRobotBack(moves) {
                         pos.splice(foundMove, 1);
                         moveProp[move].countUsed = moveProp[move].countUsed - 1;
                         pos.push(moveProp[move].invert);
-                        moveProp[move].countUsed = moveProp[moveProp[move].invert].countUsed + 1;
+                        moveProp[moveProp[move].invert].countUsed = moveProp[moveProp[move].invert].countUsed + 1;
                         nextValInvert = false;
                     }
                 } else if (hasNextVal) {
-                    if (moveProp[move].countUsed > 1 && moveProp[move].countUsed < 3) {
+                    if (moveProp[move].countUsed > 1) {
                         const foundMove = pos.findIndex(fi => fi === move);
                         if (foundMove >= 0) {
                             pos.splice(foundMove, 1);
                             moveProp[move].countUsed = moveProp[move].countUsed - 1;
                             hasNextVal = false;
-                        } else {
-                            console.log('...')
                         }
-                    } else if (moveProp[move].countUsed >= 1 && moveProp[move].countUsed < 2) {
-                        console.log('............')
                     }
                 }
 
@@ -84,7 +79,6 @@ export function isRobotBack(moves) {
         } else if (move === 'D') {
             y--;
         }
-
     });
     return checkReturnOrigin([x, y]);
 }
