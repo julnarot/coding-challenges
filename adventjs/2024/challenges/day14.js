@@ -13,10 +13,10 @@ export function minMovesToStables(reindeer, stables) {
         return nearOrd[nearOrd.length - 1];
     }
 
-    let lis = [...stables]
+    let lis = [...stables.sort((a, b) => a.res > b ? 1 : a < b ? -1 : 0)];
     return reindeer.map(rei => {
         const mm = findMinReinInStab(rei, lis);
-        lis = lis.filter(f=>f!==mm.stabPos);
+        lis = lis.filter(f => f !== mm.stabPos);
         return mm.res;
     }).reduce((rr, a) => rr + a, 0);
 }
