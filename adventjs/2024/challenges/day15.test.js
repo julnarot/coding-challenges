@@ -17,6 +17,29 @@ test('unit test 01', () => {
     expect(drawTable(data)).toEqual(expectVal);
 })
 
+test('unit test 02', () => {
+    const data = [
+        { gift: 'Doll', quantity: 10 },
+        { gift: 'Book', quantity: 5 },
+        { gift: 'Music CD', quantity: 1 }
+      ];
+    const expectVal = `+----------+----------+
+| Gift     | Quantity |
++----------+----------+
+| Doll     | 10       |
+| Book     | 5        |
+| Music CD | 1        |
++----------+----------+`;
+    expect(drawTable(data)).toEqual(expectVal);
+})
+
+
+
+
+
+
+
+
 
 
 
