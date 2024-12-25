@@ -26,6 +26,6 @@ export function drawTable(data) {
     const rowsAndColumns = [[], rows, [], ...columns, []];
     const rsize = rowsSize([rows, ...columns]);
     return rowsAndColumns.map(rc => {
-        return rc.length > 0 ? `| ${rc.map((r, i) => '' + r.padEnd(rsize[i], ' ')).join(' | ')}  |` : `+${rsize.map(r => "".padEnd(r + 2, '-')).join("+")}-+`
+        return rc.length > 0 ? `| ${rc.map((r, i) => '' + r.padEnd(rsize[i], ' ')).join(' | ')} |` : `+${rsize.map(r => "".padEnd(r + 2, '-')).join("+")}+`
     }).join('\n')
 }
