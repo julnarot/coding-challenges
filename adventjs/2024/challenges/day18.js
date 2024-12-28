@@ -1,11 +1,31 @@
 export function findInAgenda(agenda, phone) {
-    const contact = agenda.split('>')
+    const phonePattern = /\+\d{1,2}-\d{3}-\d{3}-\d{3}/ // reducir de 3 a 2 caracters
+    const namePatter = /</;
+    const contacts = agenda.replace(/(\n)/gm, "").split('>')
         .map(m => {
-            const [phonedirection, name] = m.split('<');
-            const [_, phone, address] = phonedirection.match(/^(\+\d{1,3}-\d{3}-\d{3}-\d{3})(\s(.+))$/) || []
-            return { name, phone, address }
+            const hasNumber = phonePattern.test(m);
+            const hasName = namePatter.test(m);
+            if (hasNumber) {
+                m = m.replace(phonePattern, `${m.match(phonePattern)[0]}<`)
+            } if (!hasNumber) {
+                m = `<${m}`
+            } if (!hasName) {
+                m = `${m}<`
+            }
+            const [phone, address, name] = m.split('<')
+            return { name, phone, address };
+
 
         })
-        .find(f => f.phone.includes(phone));
-    return Object.keys(contact).length ? { name: contact.name, address: contact.address.trim() } : null
+        .filter(f => !!f.phone && f.phone.includes(phone));
+    if (contacts.length === 1) {
+        const contact = contacts[0];
+        return contact && Object.keys(contact).length ?
+            {
+                name: contact.name,
+                address: contact.address ? contact.address.trim() : null
+            }
+            : null
+    }
+    return null;
 }
