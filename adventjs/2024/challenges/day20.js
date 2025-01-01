@@ -10,10 +10,13 @@ export function fixGiftList(received, expected) {
         }
     });
     expected.forEach(gift => {
-        if (received.includes(gift)) {
-            missing[gift] = missing[gift] + 1;
-        } else {
-            missing[gift] = 0
+        if (!received.includes(gift)) {
+            missing[gift] = missing.hasOwnProperty(gift) ?   missing[gift] + 1 : 1;
+        } 
+    })
+    Object.keys(extra).forEach(k=>{
+        if(extra[k]===0) {
+            delete extra[k];
         }
     })
 
