@@ -1,31 +1,21 @@
 export function distributeWeight(weight) {
-    let level = 0;
-    if (weight >= 0 < 3) {
-        level = 2
+    const boxes = {
+        1: [' _ ', '|_|'],
+        2: [' ___ ', '|___|'],
+        5: [' _____ ', '|     |', '|_____|'],
+        10: [' _________ ', '|         |', '|_________|'],
+    };
+    const foundInBoxes = (weight) => {
+        return [...Object.keys(boxes)].reverse().find(f => Number(f) <= weight)
     }
-    return Array.from({ length: level }).map((_, i) => {
-        let res =  Array.from({length:((weight*2)+1)-2}).map(f=>'#')
-        if(i===0){
-            res.pop;
-            res = [' ',...[...res].map(()=>'_')]
-        }else if(i===level-1){
-            res = ['|',...[...res].map(()=>'_'),'|']
-        }
-        return res
-        // return " "+"".padStart(weight, "_")+`\n|`+"".padStart(weight, "_")+`|`
-        // if (weight === 1) {
-        // return i === 0 ? ` ${"".padStart(weight+1, "_")}` : `|${"".padStart(weight+1, "_")}|`
-        // } else if (weight === 2) {
-        // return i === 0 ? ` ${"".padStart(weight + 1, "_")}` : i === weight - 1 ? `|${"".padStart(weight + 1, "_")}|` : "".padStart(weight + 1, "_")
-        // }
-    }).map((f, i) => {
-        // if (i === 0) {
-        //     return ` ${"".padStart(weight , "_")}`;
-        // }
-        // else {
-        //     return `|${"".padStart(weight , "_")}|`;
-        // }
-        return f.join("")
-    })
-    .join("\n");
+    let list = [];
+    while (weight > 0) {
+        const boxWeight = foundInBoxes(weight);
+        const [last, ...rest] = boxes[boxWeight].slice().reverse();
+        const end = list.shift();
+        const newlast = `${last}${end?.slice(last.length, -1) ?? ''}`;
+        list.unshift(...[newlast, ...rest].reverse());
+        weight =weight- boxWeight;
+      }
+    return list.join('\n')
 }
