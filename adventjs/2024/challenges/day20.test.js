@@ -97,3 +97,16 @@ test('Unit test 09', () => {
     })
 })
 
+test('Unit test 10', () => {
+    expect(fixGiftList(['train', 'bear'], ['train'])).toEqual({
+        missing: {},
+        extra: { bear: 1 }
+    });
+});
+
+test('Unit test 11', () => {
+    expect(fixGiftList(['car'], ['car', 'bear'])).toEqual({
+        missing: { bear: 1 },
+        extra: {}
+    });
+});

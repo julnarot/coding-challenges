@@ -29,7 +29,11 @@ export function fixGiftList(received, expected) {
             missing[k] = missing.hasOwnProperty(k) ? missing[k] : expObj[k]
         }
     })
-
+    Object.keys(recObj).forEach(k => {
+        if (!expObj.hasOwnProperty(k)) {
+            extra[k] = recObj[k];
+        }
+    });
     return {
         missing,
         extra
