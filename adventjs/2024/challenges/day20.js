@@ -1,22 +1,32 @@
 export function fixGiftList(received, expected) {
-
-    const extra = {}
-    const missing = {}
-    received.forEach(gift => {
-        if (extra.hasOwnProperty(gift)) {
-            extra[gift] = extra[gift] + 1;
+    const extra = {};
+    const missing = {};
+    const expObj = {};
+    const recObj = {};
+    expected.forEach(element => {
+        if (expObj.hasOwnProperty(element)) {
+            expObj[element] = expObj[element] + 1
         } else {
-            extra[gift] = 0
+            expObj[element] = 1
         }
     });
-    expected.forEach(gift => {
-        if (!received.includes(gift)) {
-            missing[gift] = missing.hasOwnProperty(gift) ?   missing[gift] + 1 : 1;
-        } 
-    })
-    Object.keys(extra).forEach(k=>{
-        if(extra[k]===0) {
-            delete extra[k];
+    received.forEach(element => {
+        if (recObj.hasOwnProperty(element)) {
+            recObj[element] = recObj[element] + 1
+        } else {
+            recObj[element] = 1
+        }
+    });
+    Object.keys(expObj).forEach(k => {
+        if (recObj.hasOwnProperty(k)) {
+            const calExtra = recObj[k] - expObj[k];
+            if (calExtra > 0) {
+                extra[k] = calExtra
+            } else if (calExtra < 0) {
+                missing[k] = missing.hasOwnProperty(k) ? missing[k] + (calExtra * -1) : calExtra * -1
+            }
+        } else {
+            missing[k] = missing.hasOwnProperty(k) ? missing[k] : expObj[k]
         }
     })
 
