@@ -1,7 +1,7 @@
 export function treeHeight(tree) {
     const nodeSide = (node) => {
         if (node === null) {
-            return null;
+            return 0;
         }
         const rightQty = nodeSide(node.right);
         const leftQty = nodeSide(node.left);

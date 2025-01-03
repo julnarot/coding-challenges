@@ -97,3 +97,7 @@ test("Unit test 05", () => {
       };
     expect(treeHeight(tree)).toEqual(4)
 })
+
+test("Unit test 06", () => {
+    expect(treeHeight(null)).toEqual(0)
+})
