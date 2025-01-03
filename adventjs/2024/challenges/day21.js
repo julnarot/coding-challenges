@@ -1,5 +1,4 @@
 export function treeHeight(tree) {
-
     const nodeSide = (node) => {
         if (node === null) {
             return null;
