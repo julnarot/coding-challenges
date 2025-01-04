@@ -1,15 +1,19 @@
 export function generateGiftSets(gifts) {
     // Code here
-    const getAllCombination = (gifts, res, posix) => {
-
-        if (posix === gifts.length) {
-            return res;
+    const getAllCombination = (gifts, allCombinations, posix) => {
+        const exist = posix === gifts.length
+        if (exist) {
+            return allCombinations;
         }
-        res.push([gifts[posix]]);
-        return getAllCombination(gifts, res, posix + 1);
+        const combinations = [];
+        Array.from({ length: 1 }).forEach(() => {
+            combinations.push(gifts[posix]);
+        })
+        allCombinations.push(combinations);
+        return getAllCombination(gifts, allCombinations, posix + 1);
 
     }
 
 
-    return getAllCombination(gifts,[],0)
+    return getAllCombination(gifts, [], 0)
 }
