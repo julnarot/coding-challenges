@@ -10,5 +10,5 @@ test('Unit test 01', () => {
         ['car', 'puzzle'],
         ['doll', 'puzzle'],
         ['car', 'doll', 'puzzle']
-    ])
+    ]);
 })

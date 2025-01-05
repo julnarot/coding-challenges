@@ -1,19 +1,26 @@
 export function generateGiftSets(gifts) {
-    // Code here
-    const getAllCombination = (gifts, allCombinations, posix) => {
-        const exist = posix === gifts.length
-        if (exist) {
-            return allCombinations;
-        }
+    
+    const existAllIn = (allCombinations) => {
+        return allCombinations.length === gifts.length;
+    }
+    const addToCombinations = (allCombinations, posix) => {
         const combinations = [];
         Array.from({ length: 1 }).forEach(() => {
             combinations.push(gifts[posix]);
-        })
+        });
         allCombinations.push(combinations);
-        return getAllCombination(gifts, allCombinations, posix + 1);
-
+        return allCombinations;
     }
 
+    const getAllCombination = (gifts, allCombinations, posix) => {
 
-    return getAllCombination(gifts, [], 0)
+        if (existAllIn(allCombinations)) {
+            return allCombinations;
+        }
+
+        allCombinations = addToCombinations(allCombinations,posix);
+        return getAllCombination(gifts, allCombinations, posix + 1);
+    }
+
+    return getAllCombination(gifts, [], 0);
 }
