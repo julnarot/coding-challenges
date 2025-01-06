@@ -1,66 +1,52 @@
 
 export function execute(code) {
-    let result = 0;
-    const appyOperation = (lastValue, value, simbol) => {
-        if (simbol === '+') {
-            value++;
-        }
-        if (simbol === '-') {
-            value--;
-        }
-        if (simbol === '>') {
-        } if (simbol.startsWith("[")) {
-            let acum = lastValue;
-            while (acum !== 0) {
-                simbol.substr(1, simbol.length - 1).split("").forEach(f => {
-                    if (f === '-') {
-                        acum--;
-                    }
-                    if (f === '+') {
-                        acum++;
-                    }
-                })
+    let cells = [0];
+    let pointer = 0;
+    const stack = [];
 
-            }
-            value = acum;
-        } if (simbol.startsWith("{")) {
-            if (lastValue !== 0) {
-                simbol.substr(1, simbol.length - 1).split("").forEach(f => {
-                    if (f === '+') {
-                        value++;
+
+    const processCode = (block) => {
+        let i = 0;
+        while (i < block.length) {
+            const instruction = block[i];
+            if (instruction === '+') {
+                cells[pointer]++;
+            } else if (instruction === '-') {
+                cells[pointer]--;
+            } else if (instruction === '[') {
+                if (cells[pointer] === 0) {
+                    let openBlocks = 1;
+                    while (openBlocks > 0) {
+                        i++;
+                        if (block[i] === '[') openBlocks++;
+                        if (block[i] === ']') openBlocks--;
                     }
-                })
+                } else {
+                    stack.push(i);
+                }
+            } else if (instruction === ']') {
+                if (cells[pointer] !== 0) {
+                    i = stack[stack.length - 1];
+                } else {
+                    stack.pop();
+                }
+            } else if (instruction === '{') {
+                if (cells[pointer] === 0) {
+                    let openBlocks = 1;
+                    while (openBlocks > 0) {
+                        i++;
+                        if (block[i] === '{') openBlocks++;
+                        if (block[i] === '}') openBlocks--;
+                    }
+                }
             }
+            i++;
         }
-        return value
-    }
-    const customSpliting = (code) => {
-        let newCharacter = [];
-        for (let index = 0; index < code.length; index++) {
-            const character = code.charAt(index);
-            if (['>', '+', '-'].includes(character)) {
-                newCharacter.push(character)
-            } else if (character === '[') {
-                const mat = /\]/.exec(code);
-                const nchar = code.substr(index, mat.index);
-                newCharacter.push(nchar);
-                index = index + (nchar.length)
-            } else if (character === '{') {
-                const mat = /\}/.exec(code);
-                const nchar = code.substr(index, mat.index);
-                newCharacter.push(nchar);
-                index = index + (nchar.length)
-            }
-
-        }
-
-        return newCharacter
     };
 
-    const spll = customSpliting(code)
-    spll.forEach((simbol) => {
-        const lastResult = result;
-        result = appyOperation(lastResult, result, simbol);
-    });
-    return result;
+
+    code = code.replaceAll('>', '');
+    processCode(code);
+
+    return cells[pointer];
 }
