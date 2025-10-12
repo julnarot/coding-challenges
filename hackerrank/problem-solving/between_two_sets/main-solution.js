@@ -1,17 +1,19 @@
 export function getTotalX(a, b) {
-  console.log(
-    [...Array(100).keys()]
-      .map((n) => n + 1)
-      .filter((n) => {
-        return (n + 1) % 2;
-      })
-  );
-  console.log(
-    [...Array(100).keys()]
-      .map((n) => n + 1)
-      .filter((n) => {
-        return (n + 1) % 6;
-      })
-  );
-  return 2;
+  let count = 0;
+
+  for (let i = Math.max(...a); i <= Math.min(...b); i++) {
+    const divisibleByAllB =
+      b.filter((element) => element % i === 0).length === b.length;
+
+    if (divisibleByAllB) {
+      const factorsOfAllA =
+        a.filter((elementInA) => i % elementInA === 0).length === a.length;
+
+      if (factorsOfAllA) {
+        count++;
+      }
+    }
+  }
+
+  return count;
 }
