@@ -1,6 +1,6 @@
 # 💻 Coding Challenges
 
-This repository contains my solutions to various **coding challenges** from platforms such as [**AdventJS**](https://adventjs.dev), [**HackerRank**](https://www.hackerrank.com), and [**halloween.dev**](https://www.halloween.dev/).
+This repository contains my solutions to various **coding challenges** from platforms such as [**AdventJS**](https://adventjs.dev), [**HackerRank**](https://www.hackerrank.com), [**halloween.dev**](https://www.halloween.dev/), and [**codewars**](https://www.codewars.com/).
 
 My goal is to **share**, **practice**, and **improve** my skills in analysis, development, and problem-solving through the completion of programming challenges.
 
@@ -25,6 +25,7 @@ The repository is organized as follows:
 - [**/adventjs/**](adventjs/README.md): Contains the solutions to the **AdventJS** challenges.
 - [**/hackerrank/**](hackerrank/README.md): Contains the solutions to the **HackerRank** challenges.
 - [**/halloweendev/2025/**](halloweendev/2025/README.md): Contains the solutions to the **Halloween.dev 2025** challenges.
+- [**/codewars/**](codewars/README.md): Contains the solutions to the **Codewars** challenges.
 <!-- - **/html-css/**: Contains solutions to HTML and CSS challenges, such as problems from **CSSBattle**, aimed at improving design and front-end layout skills. -->
 
 <!-- [**Advent of Code**](https://adventofcode.com/) -->
