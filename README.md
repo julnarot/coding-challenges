@@ -1,21 +1,30 @@
-# Code Challenges Repository
+# 💻 Coding Challenges
 
-Este repositorio contiene soluciones a diversos *code challenges* de diferentes plataformas, resolviendo desafíos . Mi objetivo es mejorar mis habilidades de programación mediante la resolución de estos desafíos y compartir las soluciones junto con casos de prueba que demuestran cómo funcionan los algoritmos implementados.
+This repository contains my solutions to various **coding challenges** from platforms such as [**AdventJS**](https://adventjs.dev), [**HackerRank**](https://www.hackerrank.com), and [**halloween.dev**](https://www.halloween.dev/).
 
-## ¿Qué encontrarás aquí?
+My goal is to **share**, **practice**, and **improve** my skills in analysis, development, and problem-solving through the completion of programming challenges.
 
-- **Soluciones a *code challenges* de plataformas populares**: Aquí encontrarás desafíos resueltos de plataformas como [AdventJS](https://adventjs.dev/), [Advent of Code](https://adventofcode.com/), [CoreRank](https://www.hackerrank.com/) entre otros
-- **Uso de diferentes lenguajes de programación**: Las soluciones están escritas en varios lenguajes de programación, como JavaScript, TypeScript, Java, python, entre otros.
-- **Casos de prueba**: Cada solución incluye casos de prueba para validar que los algoritmos funcionen correctamente. y la mayoría de los  casos de prueba estan proporcionadas por el challenge ademas de las que se puedad requerirpara  verificar la precisión de las soluciones.
+## 🧩 What You'll Find Here
 
-## Estructura del Repositorio
+- **Solutions to coding challenges**:  
+  Each challenge is organized in folders, containing a complete and well-documented solution.
 
-El repositorio está organizado de la siguiente manera:
+- **Use of different programming languages**:  
+  Solutions are written in various languages such as **JavaScript**, **TypeScript**, **Java**, **Python**, and more.
 
-### Descripción de las carpetas y archivos
+- **Test cases**:  
+  Every solution includes test cases to ensure that the algorithms work correctly.  
+  Most tests are provided by the original challenge platforms, with additional custom cases added to verify the accuracy and robustness of each solution.
 
-- **/adventjs/**: Contiene las soluciones a los desafíos de  [**AdventJS**](adventjs/README.md). 
-- **/hackerrank/**: Contiene las soluciones a los desafíos de [**HackerRank**](hackerrank/README.md).
+## 📂 Repository Structure
 
-- **/html-css/**: Contiene soluciones a desafíos de HTML y CSS, como el problema de **CSSBattle** para probar habilidades en diseño y maquetación web.
+The repository is organized as follows:
 
+### Folder and file descriptions
+
+- [**/adventjs/**](adventjs/README.md): Contains the solutions to the **AdventJS** challenges.
+- [**/hackerrank/**](hackerrank/README.md): Contains the solutions to the **HackerRank** challenges.
+- [**/halloweendev/2025/**](halloweendev/2025/README.md): Contains the solutions to the **Halloween.dev 2025** challenges.
+<!-- - **/html-css/**: Contains solutions to HTML and CSS challenges, such as problems from **CSSBattle**, aimed at improving design and front-end layout skills. -->
+
+<!-- [**Advent of Code**](https://adventofcode.com/) -->
